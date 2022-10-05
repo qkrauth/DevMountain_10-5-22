@@ -26,8 +26,6 @@ const balancedFunction = (str) => {
             count += 1
         } else if (str[i] === ")") {
             count -= 1
-        } else {
-            count === count
         }
     }
     if (count === 0) {
@@ -37,4 +35,20 @@ const balancedFunction = (str) => {
     }
     
 }
-console.log(balancedFunction("a(b(c)d)e")) // solved this completely on my own woo!
+console.log(balancedFunction("a(b(c)d)e")) // solved this on my own woo!
+
+////////// SOLUTION 2 //////////
+
+function hasBalancedParens(string) {
+    let countOpen = 0;
+    let countClosed = 0;
+    for (let i = 0; i < string.length; i++) {
+        if (string[i] === "(") {
+            countOpen += 1;
+        } else if (string[i] === ")") {
+            countClosed += 1;
+        }
+    }
+    return countOpen === countClosed
+}
+console.log(hasBalancedParens("a(b)c(d)e"))
